@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OTP Verification</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>OTP Verification</h1>
+
+    <p>Enter your authentication code.</p>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="otp"
+            placeholder="6-digit OTP"
+            maxlength="6"
+            required
+        >
+
+        <button type="submit">
+            Verify OTP
+        </button>
+
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AuthShield 360</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>AuthShield 360</h1>
+
+        <h2>EduSecure Portal</h2>
+
+        <p class="subtitle">
+            Secure School Authentication Laboratory
+        </p>
+
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                name="username"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                name="password"
+                required
+            >
+
+            <button type="submit">
+                Sign In
+            </button>
+
+        </form>
+
+        <hr>
+
+        <p><strong>Demo Accounts</strong></p>
+
+        <p>Student: student1 / Student@123</p>
+        <p>Teacher: teacher1 / Teacher@123</p>
+        <p>Admin: admin1 / Admin@123</p>
+
+    </div>
+
+</div>
+
+</body>
+</html>

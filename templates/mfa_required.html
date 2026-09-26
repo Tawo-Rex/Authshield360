@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AuthShield 360 - Additional Authentication</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <h1>AuthShield 360</h1>
+
+        <h2>Additional Authentication Required</h2>
+
+        <p>
+            Password authentication was successful.
+        </p>
+
+        <p>
+            Account:
+            <strong>{{ username }}</strong>
+        </p>
+
+        <div class="error">
+            <strong>Additional authentication is required.</strong>
+        </div>
+
+        <p>
+            Enter the six-digit code from your authenticator application.
+        </p>
+
+        <a href="/totp">
+            <button type="button">
+                Continue to Authentication
+            </button>
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>

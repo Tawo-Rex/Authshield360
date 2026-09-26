@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Examination Results</h1>
+
+<table>
+
+<tr>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Result</th>
+</tr>
+
+{% for result in results %}
+
+<tr>
+    <td>{{ result["name"] }}</td>
+    <td>{{ result["department"] }}</td>
+    <td>{{ result["result"] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+    Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

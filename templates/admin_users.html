@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Users</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>User Administration</h1>
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th>Role</th>
+    <th>Email</th>
+</tr>
+
+{% for user in users %}
+
+<tr>
+    <td>{{ user["id"] }}</td>
+    <td>{{ user["username"] }}</td>
+    <td>{{ user["role"] }}</td>
+    <td>{{ user["email"] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+    Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignments</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Assignments</h1>
+
+<table>
+
+<tr>
+    <th>Title</th>
+    <th>Course</th>
+    <th>Due Date</th>
+</tr>
+
+{% for assignment in assignments %}
+
+<tr>
+    <td>{{ assignment["title"] }}</td>
+    <td>{{ assignment["course"] }}</td>
+    <td>{{ assignment["due_date"] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+    Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

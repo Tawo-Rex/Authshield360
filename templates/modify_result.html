@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Modify Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Modify Student Result</h1>
+
+<p>
+    Student:
+    <strong>{{ result["name"] }}</strong>
+</p>
+
+<p>
+    Department:
+    <strong>{{ result["department"] }}</strong>
+</p>
+
+<p>
+    Current Result:
+    <strong>{{ result["result"] }}</strong>
+</p>
+
+<form
+    method="POST"
+    action="/results/modify/{{ result['id'] }}"
+>
+
+<label>New Result</label>
+
+<select name="result" required>
+
+<option value="A">A</option>
+<option value="B+">B+</option>
+<option value="B">B</option>
+<option value="C">C</option>
+<option value="D">D</option>
+<option value="F">F</option>
+
+</select>
+
+<button type="submit">
+    Save Result
+</button>
+
+</form>
+
+<br>
+
+<a href="/teacher/manage-results">
+    Back to Results
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

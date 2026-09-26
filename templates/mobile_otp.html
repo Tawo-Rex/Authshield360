@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile OTP Verification</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Mobile OTP Verification</h1>
+
+    <p>
+        A time-limited OTP has been sent to the
+        registered mobile number.
+    </p>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="otp"
+            maxlength="6"
+            placeholder="Enter 6-digit OTP"
+            required
+        >
+
+        <button type="submit">
+            Verify Mobile OTP
+        </button>
+
+    </form>
+
+    <form method="POST">
+
+        <input type="hidden" name="action" value="new">
+
+        <button type="submit">
+            Request New OTP
+        </button>
+
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    {% if otp %}
+
+    <div class="test-mail">
+
+        <h3>📱 Test Mobile OTP Channel</h3>
+
+        <p>
+            This represents the approved test mobile channel
+            for the AuthShield 360 laboratory.
+        </p>
+
+        <h2>{{ otp }}</h2>
+
+        <p>
+            OTP validity: 2 minutes
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

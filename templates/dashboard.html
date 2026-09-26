@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EduSecure Portal</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>EduSecure Portal</h1>
+
+<h2>
+    Welcome, {{ user["username"] }}
+</h2>
+
+<p>
+    Role:
+    <strong>{{ user["role"] }}</strong>
+</p>
+
+<hr>
+
+{% if user["role"] == "student" %}
+
+<h3>Student Services</h3>
+
+<a href="/student/results">
+    View My Examination Results
+</a>
+
+<a href="/student/assignments">
+    View Assignments
+</a>
+
+<hr>
+
+<h3>Restricted Functions</h3>
+
+<p>
+    Students cannot modify examination results.
+</p>
+
+<a href="/results/modify/1">
+    Attempt Result Modification
+</a>
+
+<a href="/teacher/records">
+    Attempt Teacher Records
+</a>
+
+<a href="/admin/logs">
+    Attempt Security Logs
+</a>
+
+
+{% elif user["role"] == "teacher" %}
+
+<h3>Teacher Services</h3>
+
+<a href="/teacher/records">
+    View Teaching Records
+</a>
+
+<a href="/teacher/student-records">
+    View Student Academic Records
+</a>
+
+<a href="/teacher/manage-results">
+    Manage Student Results
+</a>
+
+<hr>
+
+<h3>Restricted Functions</h3>
+
+<p>
+    Teachers cannot access administrator security functions.
+</p>
+
+<a href="/admin/logs">
+    Attempt Security Logs
+</a>
+
+<a href="/admin/users">
+    Attempt User Administration
+</a>
+
+<a href="/admin/system">
+    Attempt System Configuration
+</a>
+
+
+{% elif user["role"] == "admin" %}
+
+<h3>Administrator Services</h3>
+
+<a href="/admin/users">
+    Manage Users
+</a>
+
+<a href="/admin/logs">
+    Security Logs
+</a>
+
+<a href="/admin/system">
+    System Configuration
+</a>
+
+<a href="/teacher/manage-results">
+    Manage Student Results
+</a>
+
+<a href="/teacher/student-records">
+    View Student Records
+</a>
+
+{% endif %}
+
+<hr>
+
+<a href="/logout">
+    Logout
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Verification</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Email Step-Up Verification</h1>
+
+    <p>
+        A verification code has been sent to:
+    </p>
+
+    <strong>{{ email }}</strong>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="code"
+            placeholder="Email verification code"
+            maxlength="6"
+            required
+        >
+
+        <button type="submit">
+            Verify Email
+        </button>
+
+    </form>
+
+    {% if code %}
+
+    <div class="test-mail">
+
+        <h3>Simulated Mailbox</h3>
+
+        <p>Your verification code is:</p>
+
+        <strong>{{ code }}</strong>
+
+        <p>
+            This simulated mailbox is for the
+            AuthShield 360 testing environment.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

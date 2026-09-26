@@ -1,0 +1,6 @@
+Flask
+Werkzeug
+pyotp
+qrcode
+Pillow
+python-dotenv

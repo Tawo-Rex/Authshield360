@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AuthShield 360 - MFA Enrollment</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <h1>AuthShield 360</h1>
+
+        <h2>MFA Enrollment</h2>
+
+        <p>
+            Account:
+            <strong>{{ username }}</strong>
+        </p>
+
+        <p>
+            Scan this QR code with your authenticator application.
+        </p>
+
+        <div style="text-align:center;">
+            <img
+                src="data:image/png;base64,{{ qr_code }}"
+                alt="AuthShield 360 TOTP QR Code"
+                style="width:250px;height:250px;border:10px solid white;"
+            >
+        </div>
+
+        <hr>
+
+        <h3>Manual Setup</h3>
+
+        <p>
+            If QR scanning is unavailable, manually enter this secret:
+        </p>
+
+        <div style="
+            background:#eee;
+            padding:15px;
+            border-radius:6px;
+            word-break:break-all;
+            font-family:monospace;
+        ">
+            {{ secret }}
+        </div>
+
+        <hr>
+
+        <h3>Confirm Enrollment</h3>
+
+        <p>
+            Enter the six-digit code currently displayed
+            by your authenticator.
+        </p>
+
+        {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="/mfa-enrollment">
+
+            <input
+                type="text"
+                name="otp"
+                inputmode="numeric"
+                pattern="[0-9]{6}"
+                maxlength="6"
+                placeholder="6-digit code"
+                required
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Verify and Enable MFA
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

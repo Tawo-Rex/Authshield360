@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Verification</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>Email Step-Up Verification</h1>
+
+        <p>
+            Enter the verification code sent to your registered email.
+        </p>
+
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <label>Email Verification Code</label>
+
+            <input
+                type="text"
+                name="otp"
+                maxlength="6"
+                pattern="[0-9]{6}"
+                required
+            >
+
+            <button type="submit">
+                Verify Email
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

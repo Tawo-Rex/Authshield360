@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Records</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Teacher Records</h1>
+
+<table>
+
+<tr>
+    <th>Teacher</th>
+    <th>Course</th>
+    <th>Class</th>
+</tr>
+
+{% for record in records %}
+
+<tr>
+    <td>{{ record["teacher"] }}</td>
+    <td>{{ record["course"] }}</td>
+    <td>{{ record["class_name"] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+    Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

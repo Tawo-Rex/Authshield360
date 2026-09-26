@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Logs</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>AuthShield 360 Security Logs</h1>
+
+<pre>{% for log in logs %}{{ log }}{% endfor %}</pre>
+
+<br>
+
+<a href="/dashboard">
+    Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

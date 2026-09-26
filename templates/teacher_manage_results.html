@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Manage Student Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Student Result Management</h1>
+
+<p>
+    This function is restricted to Teachers and Administrators.
+</p>
+
+<table>
+
+<tr>
+    <th>Student</th>
+    <th>Department</th>
+    <th>Current Result</th>
+    <th>Action</th>
+</tr>
+
+{% for result in results %}
+
+<tr>
+
+    <td>
+        {{ result["name"] }}
+    </td>
+
+    <td>
+        {{ result["department"] }}
+    </td>
+
+    <td>
+        {{ result["result"] }}
+    </td>
+
+    <td>
+
+        <a href="/results/modify/{{ result['id'] }}">
+            Modify Result
+        </a>
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+    Return to Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
