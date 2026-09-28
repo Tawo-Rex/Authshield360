@@ -20,3 +20,9 @@ logs/
 # OS files
 .DS_Store
 Thumbs.db
+
+
+# Local backup copies
+app_backup_*.py
+app_working_*_backup.py
+

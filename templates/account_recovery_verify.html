@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AuthShield 360 - Verify Recovery</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>AuthShield 360</h1>
+
+        <h2>Verify Account Recovery</h2>
+
+        <p>
+            A six-digit verification code has been sent to your
+            registered email address.
+        </p>
+
+        <p>
+            Enter the code below to continue.
+        </p>
+
+        {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST"
+              action="{{ url_for('account_recovery_verify') }}">
+
+            <label for="otp">
+                Verification Code
+            </label>
+
+            <br>
+
+            <input
+                type="text"
+                id="otp"
+                name="otp"
+                inputmode="numeric"
+                pattern="[0-9]{6}"
+                maxlength="6"
+                placeholder="Enter 6-digit code"
+                required
+                autocomplete="one-time-code"
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Verify Code
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="{{ url_for('account_recovery') }}">
+            Start Again
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

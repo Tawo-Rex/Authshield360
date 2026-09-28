@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AuthShield 360 - Reset MFA</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>AuthShield 360</h1>
+
+        <h2>Reset MFA</h2>
+
+        <p>
+            Account:
+            <strong>{{ username }}</strong>
+        </p>
+
+        <div class="error">
+            <strong>Important:</strong>
+            Resetting MFA will invalidate the current
+            authenticator and existing recovery codes.
+        </div>
+
+        <p>
+            A new authenticator setup will be generated
+            after you continue.
+        </p>
+
+        <form method="POST">
+
+            <button type="submit">
+                Continue with MFA Reset
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/account-recovery/options">
+            Cancel
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

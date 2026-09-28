@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AuthShield 360 - Recovery Codes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>AuthShield 360</h1>
+
+        <h2>MFA Recovery Codes</h2>
+
+        <div class="error">
+            <strong>Save these codes now.</strong>
+        </div>
+
+        <p>
+            Account:
+            <strong>{{ username }}</strong>
+        </p>
+
+        <p>
+            These recovery codes can be used if you lose access
+            to your authenticator application.
+        </p>
+
+        <p>
+            <strong>
+                Each code can be used only once.
+            </strong>
+        </p>
+
+        <hr>
+
+        <div style="
+            background:#f4f4f4;
+            padding:20px;
+            border-radius:8px;
+            font-family:monospace;
+            font-size:18px;
+            line-height:2;
+        ">
+
+            {% for code in recovery_codes %}
+
+                <div>{{ code }}</div>
+
+            {% endfor %}
+
+        </div>
+
+        <hr>
+
+        <p>
+            AuthShield 360 does not store these recovery codes
+            in plaintext.
+        </p>
+
+        <p>
+            Store them somewhere secure. Do not share them with
+            anyone.
+        </p>
+
+        <br>
+
+        <a href="/"><button type="button">Continue to Login</button></a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

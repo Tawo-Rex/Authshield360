@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AuthShield 360 - Recovery</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>AuthShield 360</h1>
+
+        <h2>Account Recovery</h2>
+
+        <p>
+            Enter one of your unused MFA recovery codes.
+        </p>
+
+        <p>
+            The code can only be used once.
+        </p>
+
+        {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="/recovery-login">
+
+            <input
+                type="text"
+                name="recovery_code"
+                placeholder="XXXX-XXXX-XXXX"
+                maxlength="14"
+                required
+                autocomplete="off"
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Verify Recovery Code
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/totp">
+            Back to Authenticator Code
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

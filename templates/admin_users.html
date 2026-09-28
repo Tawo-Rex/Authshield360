@@ -20,6 +20,8 @@
     <th>Username</th>
     <th>Role</th>
     <th>Email</th>
+    <th>MFA</th>
+    <th>Action</th>
 </tr>
 
 {% for user in users %}
@@ -29,6 +31,30 @@
     <td>{{ user["username"] }}</td>
     <td>{{ user["role"] }}</td>
     <td>{{ user["email"] }}</td>
+
+    <td>
+        {% if user["mfa_enabled"] %}
+            Enabled
+        {% else %}
+            Disabled
+        {% endif %}
+    </td>
+
+    <td>
+        {% if user["mfa_enabled"] %}
+        <form
+            method="POST"
+            action="/admin/users/{{ user['username'] }}/remove-mfa"
+            onsubmit="return confirm('Remove MFA for {{ user['username'] }}?');"
+        >
+            <button type="submit">
+                Remove MFA
+            </button>
+        </form>
+        {% else %}
+            —
+        {% endif %}
+    </td>
 </tr>
 
 {% endfor %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AuthShield 360 - Step-Up Authentication</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>AuthShield 360</h1>
+
+        <h2>Additional Authentication Required</h2>
+
+        <p>
+            You are attempting to access a sensitive
+            administrator function.
+        </p>
+
+        <p>
+            Administrator:
+            <strong>{{ username }}</strong>
+        </p>
+
+        <div class="error">
+            <strong>Step-up authentication required.</strong>
+        </div>
+
+        {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <p>
+            Enter the current six-digit code from your
+            authenticator application.
+        </p>
+
+        <form method="POST">
+
+            <input
+                type="text"
+                name="otp"
+                inputmode="numeric"
+                pattern="[0-9]{6}"
+                maxlength="6"
+                placeholder="6-digit code"
+                required
+                autocomplete="one-time-code"
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Verify and Continue
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/dashboard">
+            Cancel
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AuthShield 360 - System Configuration</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>AuthShield 360</h1>
+
+        <h2>System Configuration</h2>
+
+        <p>
+            Administrator access to system configuration.
+        </p>
+
+        <hr>
+
+        <h3>Available Configuration Records</h3>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+            </tr>
+
+            {% for record in records %}
+
+            <tr>
+                <td>{{ record["id"] }}</td>
+                <td>{{ record["title"] }}</td>
+                <td>{{ record["description"] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        <hr>
+
+        <h3>Sensitive Administrator Function</h3>
+
+        <p>
+            The following function requires additional
+            step-up authentication.
+        </p>
+
+        <div class="error">
+            <strong>
+                Additional authentication is required
+                before this action can be authorized.
+            </strong>
+        </div>
+
+        <br>
+
+        <form
+            method="POST"
+            action="/admin/system/sensitive-action"
+        >
+
+            <button type="submit">
+                Perform Sensitive System Action
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
